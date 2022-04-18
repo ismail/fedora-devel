@@ -5,7 +5,7 @@ FROM fedora:rawhide
 RUN dnf update -y
 RUN dnf install \
             ca-certificates cpio curl less bsdtar \
-            pkgdiff python3 rpm zsh zstd -y && \
+            openssl pkgdiff python3 rpm zsh zstd -y && \
     dnf clean all && rm -f /root/*.log && rm -rf /root/*.cfg
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
