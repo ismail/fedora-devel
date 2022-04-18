@@ -1,1 +1,1 @@
-A custom Ubuntu image.
+A custom Fedora Rawhide image.
