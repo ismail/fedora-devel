@@ -1,1 +1,1 @@
-# fedora-devel
+A custom Fedora Rawhide image.
