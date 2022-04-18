@@ -3,7 +3,6 @@
 FROM fedora:rawhide
 
 RUN dnf update -y
-
 RUN dnf install \
             ca-certificates cpio curl less bsdtar \
             pkgdiff python3 rpm zsh zstd -y && \
