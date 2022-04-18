@@ -3,7 +3,7 @@
 FROM fedora:rawhide
 
 RUN dnf update -y
-RUN dnf install \
+RUN dnf install --setopt=install_weak_deps=False \
             ca-certificates cpio curl less bsdtar \
             openssl pkgdiff python3 rpm zsh zstd -y && \
     dnf clean all && rm -f /root/*.log && rm -rf /root/*.cfg
