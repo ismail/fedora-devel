@@ -8,7 +8,7 @@ ARG TARGETPLATFORM
 RUN groupadd "$DOCKER_USER" && adduser "$DOCKER_USER" -g "$DOCKER_USER"
 
 RUN dnf install microdnf -y
-RUN microdnf update -y && microdnf install --setopt=install_weak_deps=False \
+RUN microdnf update -y && microdnf install --setopt=install_weak_deps=0 \
             ca-certificates cpio curl krb5-workstation less bsdtar \
             openssl pkgdiff python3 openssh-clients procps rpm watchman zsh zstd -y && \
     rm -f /root/*.log && rm -rf /root/*.cfg
