@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
   
 set -e
 set -u
@@ -13,8 +13,8 @@ fi
 
 if [ "$USER_UID" != 0 ]
 then
-        groupadd -g "${USER_GID}" "${USER_NAME}" || :
-        useradd -ms /usr/bin/zsh -u "${USER_UID}" "${USER_NAME}" -g "${USER_NAME}"
+        groupadd -g "${USER_GID}" "${USER_NAME}" &> /dev/null || :
+        useradd -ms /usr/bin/zsh -u "${USER_UID}" "${USER_NAME}" -g "${USER_GID}"
         touch /home/"${USER_NAME}"/.zshrc
         set -- gosu "${USER_UID}:${USER_GID}" "${@}"
 fi
