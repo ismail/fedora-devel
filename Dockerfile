@@ -7,11 +7,11 @@ ARG TARGETPLATFORM
 
 RUN groupadd "$DOCKER_USER" && adduser "$DOCKER_USER" -g "$DOCKER_USER"
 
-RUN dnf update -y
-RUN dnf install --setopt=install_weak_deps=False \
+RUN microdnf update -y
+RUN microdnf install --setopt=install_weak_deps=False \
             ca-certificates cpio curl krb5-workstation less bsdtar \
             openssl pkgdiff python3 openssh-clients procps rpm watchman zsh zstd -y && \
-    dnf clean all && rm -f /root/*.log && rm -rf /root/*.cfg
+    microdnf clean all && rm -f /root/*.log && rm -rf /root/*.cfg
 
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then ARCHITECTURE=arm64; fi \
     && curl -sS https://github.com/tianon/gosu/releases/download/1.14/gosu-amd64 | install /dev/stdin /usr/local/bin/gosu
