@@ -21,7 +21,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 COPY entrypoint /entrypoint
 COPY base16-atelier-heath.sh /etc/base16-atelier-heath.sh
 COPY ls.colors /etc/lscolors
-COPY zsh.rc /home/$DOCKER_USER/.zshrc
+COPY zsh.rc /etc/zsh/zlogin
 
 RUN chmod 0755 /entrypoint && sed "s/\$DOCKER_USER/$DOCKER_USER/g" -i /entrypoint
 
