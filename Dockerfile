@@ -2,11 +2,8 @@
 
 FROM fedora:rawhide
 
-ARG DOCKER_USER=idoenmez
 ARG GOSU_VERSION=1.14
 ARG TARGETPLATFORM
-
-RUN groupadd "$DOCKER_USER" && adduser "$DOCKER_USER" -g "$DOCKER_USER"
 
 RUN dnf update -y && dnf install --setopt=install_weak_deps=0 \
             ca-certificates cpio curl krb5-workstation less bsdtar \
@@ -18,8 +15,6 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "$
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-COPY files /
-
-RUN chmod 0755 /entrypoint && sed "s/\$DOCKER_USER/$DOCKER_USER/g" -i /entrypoint
+COPY files/ /
 
 ENTRYPOINT ["/entrypoint"]
