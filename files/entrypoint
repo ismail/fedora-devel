@@ -15,7 +15,6 @@ then
         usermod -u "$CONTAINER_UID" "$DOCKER_USER" 2>/dev/null
         groupmod -g "$CONTAINER_GID" "$DOCKER_USER" 2>/dev/null || usermod -a -G "$CONTAINER_GID" "$DOCKER_USER"
         touch /home/"$DOCKER_USER"/.zshrc
-        chown -R "${CONTAINER_UID}:${CONTAINER_GID}" /home/"$DOCKER_USER"
         set -- gosu "${CONTAINER_UID}:${CONTAINER_GID}" "${@}"
 fi
 
