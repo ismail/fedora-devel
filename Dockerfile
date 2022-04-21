@@ -5,7 +5,7 @@ FROM fedora:rawhide
 ARG DOCKER_USER=idoenmez
 ARG TARGETPLATFORM
 
-RUN groupadd "$DOCKER_USER" && adduser "$DOCKER_USER" -G "$DOCKER_USER"
+RUN adduser "$DOCKER_USER" -G "$DOCKER_USER"
 
 RUN dnf update -y
 RUN dnf install --setopt=install_weak_deps=False \
