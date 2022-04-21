@@ -18,10 +18,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "$
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-COPY entrypoint /entrypoint
-COPY base16-atelier-heath.sh /etc/base16-atelier-heath.sh
-COPY ls.colors /etc/lscolors
-COPY zsh.rc /etc/zlogin
+COPY files /
 
 RUN chmod 0755 /entrypoint && sed "s/\$DOCKER_USER/$DOCKER_USER/g" -i /entrypoint
 
