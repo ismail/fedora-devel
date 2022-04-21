@@ -14,7 +14,7 @@ RUN dnf update -y && dnf install --setopt=install_weak_deps=0 \
     rm -f /root/*.log && rm -rf /root/*.cfg
 
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then ARCHITECTURE=arm64; fi \
-    && curl -sS -L https://github.com/tianon/gosu/releases/download/"$GOSU_VERSION"/gosu-"$TARGETPLATFORM" | install /dev/stdin /usr/local/bin/gosu
+    && curl -sS -L https://github.com/tianon/gosu/releases/download/"$GOSU_VERSION"/gosu-"$ARCHITECTURE" | install /dev/stdin /usr/local/bin/gosu
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
