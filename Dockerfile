@@ -16,5 +16,5 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "$
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 COPY files/ /
-
+RUN  chmod 0755 /entrypoint
 ENTRYPOINT ["/entrypoint"]
