@@ -5,11 +5,8 @@ FROM fedora:rawhide
 ARG GOSU_VERSION=1.14
 ARG TARGETPLATFORM
 
-RUN echo "fastestmirror=true" >> /etc/dnf/dnf.conf
-RUN echo "install_weak_deps=false" >> /etc/dnf/dnf.conf
-
 RUN dnf update -y 
-RUN dnf install \
+RUN dnf install --setopt=install_weak_deps=False \
             bsdtar ca-certificates clang compiler-rt cpio curl gcc gcc-c++ gdb less \
             libasan libcxx-devel llvm openssl pkgdiff python3 openssh-clients procps \
             rpm strace zsh zstd -y && \
