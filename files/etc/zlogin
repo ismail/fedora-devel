@@ -112,3 +112,5 @@ export ALTERNATE_EDITOR=""
 PATH=~/bin:$PATH
 # Remove any duplicates
 export -U PATH
+
+[[ -o login ]] && cd $HOME
