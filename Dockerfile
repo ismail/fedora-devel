@@ -8,7 +8,8 @@ ARG TARGETPLATFORM
 RUN echo "fastestmirror=true" >> /etc/dnf/dnf.conf
 RUN echo "install_weak_deps=false" >> /etc/dnf/dnf.conf
 
-RUN dnf update -y && dnf install \
+RUN dnf update -y 
+RUN dnf install \
             bsdtar ca-certificates clang compiler-rt cpio curl gcc gcc-c++ gdb less \
             libasan libcxx-devel llvm openssl pkgdiff python3 openssh-clients procps rpm zsh zstd -y && \
     rm -f /root/*.log && rm -rf /root/*.cfg
