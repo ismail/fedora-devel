@@ -6,7 +6,7 @@ ARG GOSU_VERSION=1.14
 ARG TARGETPLATFORM
 
 RUN dnf update -y && dnf install --setopt=install_weak_deps=0 \
-            bsdtar ca-certificates clang13 cpio curl gcc gcc-c++ gdb less libasan \
+            bsdtar ca-certificates clang cpio curl gcc gcc-c++ gdb less libasan \
             openssl pkgdiff python3 openssh-clients procps rpm zsh zstd -y && \
     rm -f /root/*.log && rm -rf /root/*.cfg
 
