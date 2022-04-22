@@ -5,11 +5,11 @@ FROM fedora:rawhide
 ARG GOSU_VERSION=1.14
 ARG TARGETPLATFORM
 
-RUN dnf update -y 
-RUN dnf install --setopt=install_weak_deps=False \
+RUN yum update -y 
+RUN yum install --setopt=install_weak_deps=False \
             bsdtar ca-certificates clang compiler-rt cpio curl gcc gcc-c++ gdb less \
             libasan libcxx-devel llvm openssl pkgdiff python3 openssh-clients procps \
-            rpm strace vim zsh zstd -y && \
+            rpm rubygem-pry strace vim zsh zstd -y && \
     rm -f /root/*.log && rm -rf /root/*.cfg
 
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then ARCHITECTURE=arm64; fi \
