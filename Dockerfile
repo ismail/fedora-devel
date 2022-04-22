@@ -9,7 +9,7 @@ RUN dnf update -y
 RUN dnf install --setopt=install_weak_deps=False \
             bsdtar ca-certificates clang compiler-rt cpio curl gcc gcc-c++ gdb less \
             libasan libcxx-devel llvm openssl pkgdiff python3 openssh-clients procps \
-            rpm strace zsh zstd -y && \
+            rpm strace vim zsh zstd -y && \
     rm -f /root/*.log && rm -rf /root/*.cfg
 
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then ARCHITECTURE=amd64; elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then ARCHITECTURE=arm64; fi \
