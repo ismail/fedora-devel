@@ -7,7 +7,7 @@ ARG TARGETPLATFORM
 
 RUN echo "install_weak_deps=False" >> /etc/dnf/dnf.conf
 RUN dnf update -y
-RUN dnf install --setopt=install_weak_deps=False \
+RUN dnf install \
             bsdtar ca-certificates clang compiler-rt cpio curl gcc gcc-c++ gdb golang \
             less libasan libcxx-devel llvm openssl pkgdiff python3 openssh-clients procps \
             rpm rubygem-pry strace vim zsh zstd -y && \
