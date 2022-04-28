@@ -8,7 +8,7 @@ RUN dnf install \
             bsdtar ca-certificates clang clang-tools-extra compiler-rt cpio curl gcc gcc-c++ gdb golang \
             less libasan libcxx-devel llvm openssl pkgdiff python3 openssh-clients procps \
             rpm rubygem-pry strace vim zsh zstd -y && \
-    rm -f /root/*.log && rm -rf /root/*.cfg
+    dnf clean all && rm -f /root/*.log && rm -rf /root/*.cfg
 
 ARG GOSU_VERSION=1.14
 ARG TARGETPLATFORM
