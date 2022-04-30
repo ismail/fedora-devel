@@ -2,12 +2,12 @@
 
 FROM fedora:rawhide
 
-RUN echo "install_weak_deps=False" >> /etc/dnf/dnf.conf
-RUN dnf update -y
-RUN dnf install \
-            bsdtar ca-certificates clang clang-tools-extra compiler-rt cpio curl gcc gcc-c++ gdb golang \
-            less libasan libcxx-devel llvm openssl pkgdiff python3 openssh-clients procps \
-            rpm rubygem-pry strace vim zsh zstd -y && \
+RUN echo "install_weak_deps=False" >> /etc/dnf/dnf.conf && \
+    dnf update -y &&
+    dnf install --setopt=tsflags=nodocs \
+        bsdtar ca-certificates clang clang-tools-extra compiler-rt cpio curl gcc gcc-c++ gdb golang \
+        less libasan libcxx-devel llvm openssl pkgdiff python3 openssh-clients procps \
+        rpm rubygem-pry strace vim zsh zstd -y && \
     dnf clean all && rm -f /root/*.log && rm -rf /root/*.cfg
 
 ARG GOSU_VERSION=1.14
