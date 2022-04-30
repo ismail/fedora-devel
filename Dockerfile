@@ -3,7 +3,7 @@
 FROM fedora:rawhide
 
 RUN echo "install_weak_deps=False" >> /etc/dnf/dnf.conf && \
-    dnf update -y &&
+    dnf update -y && \
     dnf install --setopt=tsflags=nodocs \
         bsdtar ca-certificates clang clang-tools-extra compiler-rt cpio curl gcc gcc-c++ gdb golang \
         less libasan libcxx-devel llvm openssl pkgdiff python3 openssh-clients procps \
