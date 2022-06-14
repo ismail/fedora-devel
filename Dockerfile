@@ -8,7 +8,7 @@ RUN dnf update -y && dnf clean all
 RUN dnf install --setopt=tsflags=nodocs \
         bmon bsdtar ca-certificates clang clang-tools-extra compiler-rt cpio \
         curl gcc gcc-c++ gdb git golang iproute less libasan libcxx-devel \
-        llvm mtr openssl pkgdiff python3 openssh-clients procps \
+        llvm mtr openssl pkgdiff python3.11 openssh-clients procps \
         rpm rubygem-pry strace vim zsh zstd -y && \
     dnf clean all && rm -f /root/*.log && rm -rf /root/*.cfg
 
